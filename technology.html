@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology — ORION</title>
+  <meta name="description" content="ORION의 핵심 기술 — AI 경로 탐색, MEDLOG 센서 허브, 실시간 모니터링, RFID/IoT 인계, 항공 등급 소재." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="edit.css" />
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header is-solid">
+    <div class="container">
+      <a href="index.html" class="brand">ORION<span class="dot">.</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="technology.html" class="active">Technology</a>
+        <a href="product.html">Product</a>
+        <a href="mission.html">Mission</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================== PAGE HERO ========================= -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Technology</p>
+        <h1 class="display" data-reveal>정밀함은<br>기술의 총합.</h1>
+        <p class="lead" data-reveal style="margin-top:32px;">
+          ORION의 신뢰는 하나의 기능이 아니라, 이륙부터 인계까지 이어지는
+          기술의 연속에서 나옵니다. 각 단계는 서로를 보완하도록 설계되었습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================== AI ROUTE ==========================
+         Concept-led block; hangar image grounds it in the real world. -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="split">
+          <div data-reveal>
+            <p class="eyebrow"><span>01</span> &nbsp;AI Route</p>
+            <h2 class="h-lg">최단이 아니라,<br>최적의 길.</h2>
+            <p class="lead">
+              ORION의 경로 엔진은 거리만 계산하지 않습니다. 기류, 공역 제한,
+              배터리 잔량, 착륙 조건을 동시에 연산해 장기에 가장 안정적인 항로를 실시간으로 재설계합니다.
+              돌발 상황이 생기면 비행 중에도 경로는 다시 그려집니다.
+            </p>
+            <div class="stat-row" style="grid-template-columns:1fr 1fr; gap:36px; margin-top:44px;">
+              <div><div class="stat__val">4D</div><div class="stat__key">시공간 경로 연산</div></div>
+              <div><div class="stat__val">&lt;1<span class="u">s</span></div><div class="stat__key">경로 재계산 주기</div></div>
+            </div>
+          </div>
+          <div class="figure figure--hover ratio-3-4" data-ph="AI ROUTE" data-reveal>
+            <img src="images/hangar.jpg" alt="자동화 물류 허브의 착륙 마커 위에 대기 중인 ORION 드론" />
+            <span class="figure__cap"><span class="tick"></span> Autonomous logistics hub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= SENSOR HUB / MONITORING ==============
+         Macro of the sensor board — the heart of monitoring. -->
+    <section class="section">
+      <div class="container">
+        <div class="split split--wide-media">
+          <div class="figure figure--hover ratio-4-3" data-ph="SENSOR HUB" data-reveal>
+            <img src="images/sensor.jpg" alt="MEDLOG 센서 허브 근접 — 온도·습도·충격 센서와 상태 LED" />
+            <span class="figure__cap"><span class="tick"></span> MEDLOG-ENO · Sensor Hub</span>
+          </div>
+          <div data-reveal>
+            <p class="eyebrow"><span>02</span> &nbsp;Real-time Monitoring</p>
+            <h2 class="h-lg">보이지 않던 변화를<br>수치로 만듭니다.</h2>
+            <p class="lead">
+              캡슐 중심의 통합 센서 허브가 온도·습도·기압·충격·위치를 초 단위로 수집합니다.
+              하나의 값이라도 허용 범위를 벗어나면, 시스템은 즉시 보정하고 동시에 관제로 경보를 전송합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== HUD MONITORING BAND ===================
+         Full-bleed glass HUD readout. -->
+    <section class="media-band telemetry-band">
+      <div class="media-band__bg">
+        <img src="images/hud.jpg" alt="ORION 글래스 HUD — 실시간 생체·환경 데이터" />
+      </div>
+      <div class="container">
+        <div class="media-band__content" data-reveal>
+          <p class="eyebrow" style="color:rgba(255,255,255,.6)">Live Telemetry</p>
+          <h2 class="h-lg">데이터는<br>사라지지 않습니다.</h2>
+          <p class="lead" style="color:rgba(255,255,255,.82)">
+            운송 전 구간의 상태 로그는 그대로 기록되어, 도착 후 의료진이
+            장기의 이력을 완전하게 검증할 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ORION MONITOR DEVICE ===================
+         Round OR-side monitor. -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div data-reveal>
+            <p class="eyebrow"><span>03</span> &nbsp;Control Interface</p>
+            <h2 class="h-lg">한 화면에서<br>모든 것을 읽다.</h2>
+            <p class="lead">
+              수술실과 관제실은 동일한 ORION 인터페이스로 연결됩니다.
+              장기의 상태, 캡슐의 환경, 드론의 위치가 하나의 원형 디스플레이 위에 통합되어,
+              누구든 지금 무슨 일이 일어나는지 즉시 이해할 수 있습니다.
+            </p>
+          </div>
+          <div class="figure figure--hover ratio-16-9" data-ph="INTERFACE" data-reveal>
+            <img src="images/monitor.jpg" alt="수술실 옆에 놓인 ORION 원형 모니터링 디바이스" />
+            <span class="figure__cap"><span class="tick"></span> ORION console · active scan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= RFID HANDOVER ======================
+         Lock module macro. -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="split split--wide-media">
+          <div class="figure figure--hover ratio-16-9" data-ph="RFID LOCK" data-reveal>
+            <img src="images/rfid.jpg" alt="캡슐 상단의 RFID/IoT 인증 잠금 모듈" />
+            <span class="figure__cap"><span class="tick"></span> RFID handover module</span>
+          </div>
+          <div data-reveal>
+            <p class="eyebrow"><span>04</span> &nbsp;RFID / IoT Handover</p>
+            <h2 class="h-lg">인계의 순간에<br>오차를 두지 않습니다.</h2>
+            <p class="lead">
+              캡슐, 드론, 의료진은 비접촉 RFID 인증으로 서로를 확인합니다.
+              정당한 권한이 확인되기 전까지 잠금은 열리지 않으며, 모든 인계 기록은 위·변조 없이 남습니다.
+              사람의 실수가 개입할 여지를 구조적으로 제거했습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= MATERIALS ==========================
+         Carbon fibre + titanium macros. -->
+    <section class="section">
+      <div class="container">
+        <div class="head-block" data-reveal>
+          <p class="eyebrow"><span>05</span> &nbsp;Materials</p>
+          <h2 class="h-lg">가볍게, 그러나<br>타협 없이 견고하게.</h2>
+          <p class="lead">항공 등급 카본 파이버와 Ti 6Al-4V 티타늄. 무게는 줄이고 강성은 높여,
+            비행 효율과 장기의 안전을 동시에 지킵니다.</p>
+        </div>
+        <div class="gallery-2">
+          <div class="figure figure--hover ratio-1-1" data-ph="CARBON FIBRE" data-reveal>
+            <img src="images/carbon.jpg" alt="드론 구조에 사용된 카본 파이버 위브 근접 촬영" />
+            <span class="figure__cap"><span class="tick"></span> Carbon-fibre weave</span>
+          </div>
+          <div class="figure figure--hover ratio-1-1" data-ph="TITANIUM JOINT" data-reveal>
+            <img src="images/joint.jpg" alt="티타늄 소재의 정밀 폴딩 조인트 근접 촬영" />
+            <span class="figure__cap"><span class="tick"></span> Ti 6Al-4V precision joint</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ETCHED SERIAL BAND =====================
+         Thin full-width detail strip. -->
+    <section class="band-strip" data-reveal>
+      <img src="images/serial.jpg" alt="ORION 티타늄 바디에 레이저로 각인된 시리얼 넘버 24A-001" />
+    </section>
+
+    <!-- ========================= CTA (dark) ========================= -->
+    <section class="section section--ink">
+      <div class="container">
+        <h2 class="h-lg statement" data-reveal>
+          기술은 결국 <span class="accent">신뢰</span>를<br>만들기 위한 것.
+        </h2>
+        <div class="btn-row" style="justify-content:center; margin-top:40px;" data-reveal>
+          <a href="product.html" class="btn btn--light">제품 구조 보기 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          ORION<span class="dot">.</span>
+          <small>Medical transport, reimagined. AI 최적 경로 드론과 스마트 보존 캡슐로 생명을 잇습니다.</small>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Overview</a>
+            <a href="technology.html">Technology</a>
+            <a href="product.html">Product</a>
+            <a href="mission.html">Mission</a>
+          </div>
+          <div class="footer-col">
+            <h4>System</h4>
+            <a href="technology.html">AI Route</a>
+            <a href="technology.html">Real-time Monitoring</a>
+            <a href="technology.html">RFID / IoT Handover</a>
+            <a href="product.html">Smart Capsule</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> ORION Medical Systems. Concept project.</span>
+        <span>Designed for life-critical logistics.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>

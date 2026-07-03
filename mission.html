@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission — ORION</title>
+  <meta name="description" content="ORION 운영 시나리오와 세계관 — 이륙에서 인계까지, 생명을 잇는 하나의 흐름." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="edit.css" />
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header on-media">
+    <div class="container">
+      <a href="index.html" class="brand">ORION<span class="dot">.</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="technology.html">Technology</a>
+        <a href="product.html">Product</a>
+        <a href="mission.html" class="active">Mission</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================= HERO ===========================
+         Rooftop skyline dispatch. -->
+    <section class="hero" id="top">
+      <div class="hero__media">
+        <img src="images/rooftop.png" alt="도심 병원 옥상 헬리패드에서 ORION 드론을 준비하는 의료진" />
+      </div>
+      <div class="hero__inner">
+        <div class="container">
+          <h1 class="hero__title">
+            <span>모든 초(秒)가</span><br>
+  <span class="no-break">하나의 생명입니다.</span>
+            <small>Every second is a life. 도시의 하늘을 가로지르는 ORION의 여정.</small>
+          </h1>
+        </div>
+      </div>
+      <div class="scroll-cue"><span class="bar"></span> Scroll</div>
+    </section>
+
+    <!-- ====================== WORLDVIEW STATEMENT ================== -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal>The Mission</p>
+        <h2 class="h-xl statement wide" data-reveal>
+          장기 이식의 성공은 <br><span class="accent">거리와 시간</span>의 문제였습니다.
+        </h2>
+        <p class="lead" data-reveal style="margin:36px auto 0; text-align:center;">
+          ORION은 그 방정식을 다시 씁니다. 사람이 닿기 어려운 경로를 하늘로 대체하고,
+          운송의 모든 순간을 데이터로 지켜, 도착의 확률이 아니라 확신을 만듭니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= SCENARIO STEPS =====================
+         A four-step operational sequence. -->
+    <section class="section section--soft section--tight">
+      <div class="container">
+        <div class="head-block" data-reveal>
+          <p class="eyebrow">Operation Flow</p>
+          <h2 class="h-lg">이륙에서 인계까지,<br>네 개의 장면.</h2>
+        </div>
+
+        <div class="steps">
+          <!-- step 1 -->
+          <article class="step" data-reveal>
+            <div class="step__no"><b>01</b> / DEPARTURE</div>
+            <div class="step__body">
+              <h3>보존 캡슐 탑재</h3>
+              <p>적출된 장기는 전용 보존 용기에 담겨 ORION 캡슐에 탑재됩니다.
+RFID 인증이 완료되면 캡슐 내부의 온도, 습도, 충격 기록이 실시간으로 시작됩니다..</p>
+            </div>
+            <div class="figure figure--hover ratio-16-9" data-ph="LOADING" >
+              <img src="images/carpp.png" alt="수술팀이 장기를 캡슐에 안치하는 장면" />
+            </div>
+          </article>
+
+          <!-- step 2 -->
+          <article class="step" data-reveal>
+            <div class="step__no"><b>02</b> / DISPATCH</div>
+            <div class="step__body">
+              <h3>AI 경로 이륙</h3>
+              <p>드론은 병원 옥상에서 이륙하고, AI 경로 엔진은 실시간 기상과 공역 정보를 반영해 가장 안전한 항로를 설정합니다.</p>
+            </div>
+            <div class="figure figure--hover ratio-16-9" data-ph="DISPATCH">
+              <img src="images/dispatch.jpg" alt="헬리패드에서 이륙하는 ORION 드론과 지상 요원" />
+            </div>
+          </article>
+
+          <!-- step 3 -->
+          <article class="step" data-reveal>
+            <div class="step__no"><b>03</b> / TRANSIT</div>
+            <div class="step__body">
+              <h3>실시간 운송 모니터링</h3>
+              <p>비행 중 캡슐의 온도, 습도, 충격, 위치 정보가 실시간으로 전송됩니다.
+의료진은 운송 전 과정을 확인하며 장기의 상태를 안정적으로 관리할 수 있습니다.</p>
+            </div>
+            <div class="figure figure--hover ratio-16-9" data-ph="TRANSIT">
+              <img src="images/hud.jpg" alt="비행 중 전송되는 실시간 모니터링 데이터" />
+            </div>
+          </article>
+
+          <!-- step 4 -->
+          <article class="step" data-reveal>
+            <div class="step__no"><b>04</b> / HANDOVER</div>
+            <div class="step__body">
+              <h3>정확한 인계 확인</h3>
+              <p>목적지 병원에 도착한 캡슐은 RFID 인증을 통해 의료진에게 인계됩니다.
+운송 중 기록된 상태 로그가 함께 전달되어, 장기의 이동 이력을 정확하게 확인할 수 있습니다.</p>
+            </div>
+            <div class="figure figure--hover ratio-16-9" data-ph="HANDOVER">
+              <img src="images/rooftop.jpg" alt="목적지 병원 옥상에서 캡슐을 인계받는 의료진" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= WORLD MEDIA BAND ===================
+         The infrastructure vision — hangar. -->
+    <section class="media-band media-band--center">
+      <div class="media-band__bg">
+        <img src="images/hangar.jpg" alt="ORION 드론이 대기하는 대규모 자동화 의료 물류 허브" />
+      </div>
+      <div class="container">
+        <div class="media-band__content" data-reveal>
+          <p class="eyebrow" style="color:rgba(255,255,255,.6); justify-content:center;">The Network</p>
+          <h2 class="h-lg">한 대의 드론이 아니라,<br>하나의 네트워크.</h2>
+        
+          <p class="lead" style="color:rgba(255,255,255,.82); margin-left:auto; margin-right:auto;">
+            도시의 병원들이 ORION 허브로 연결될 때, 장기는 더 이상 도로 위에서
+            시간을 잃지 않습니다. 하늘은 가장 빠른 응급 도로가 됩니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CLOSING (dark) ==================== -->
+    <section class="section section--ink">
+      <div class="container">
+        <p class="eyebrow" data-reveal style="justify-content:center; text-align:center; display:flex;">ORION</p>
+        <h2 class="display statement" data-reveal>
+          생명을 잇다.
+        </h2>
+        <p class="lead" data-reveal style="text-align:center; margin:28px auto 0; color:var(--on-dark-2);">
+          Connecting life, one precise flight at a time.
+        </p>
+        <div class="btn-row" style="justify-content:center; margin-top:44px;" data-reveal>
+          <a href="index.html" class="btn btn--light">처음으로 <span class="arrow">→</span></a>
+          <a href="technology.html" class="btn btn--light">기술 다시 보기</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          ORION<span class="dot">.</span>
+          <small>Medical transport, reimagined. AI 최적 경로 드론과 스마트 보존 캡슐로 생명을 잇습니다.</small>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Overview</a>
+            <a href="technology.html">Technology</a>
+            <a href="product.html">Product</a>
+            <a href="mission.html">Mission</a>
+          </div>
+          <div class="footer-col">
+            <h4>System</h4>
+            <a href="technology.html">AI Route</a>
+            <a href="technology.html">Real-time Monitoring</a>
+            <a href="technology.html">RFID / IoT Handover</a>
+            <a href="product.html">Smart Capsule</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> ORION Medical Systems. Concept project.</span>
+        <span>Designed for life-critical logistics.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>

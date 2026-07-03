@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — ORION</title>
+  <meta name="description" content="ORION 제품 구조 — 자율 비행 드론과 장기 운송·보존 캡슐의 분해도, 디테일, 스펙." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="edit.css" />
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header is-solid">
+    <div class="container">
+      <a href="index.html" class="brand">ORION<span class="dot">.</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="technology.html">Technology</a>
+        <a href="product.html" class="active">Product</a>
+        <a href="mission.html">Mission</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================== PAGE HERO ========================= -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Product</p>
+        <h1 class="display" data-reveal>구조가<br>곧 성능이다.</h1>
+        <p class="lead" data-reveal style="margin-top:32px;">
+          모든 부품은 하나의 목적을 위해 놓였습니다 — 장기를 가장 안전하게,
+          가장 빠르게 옮기는 것.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================== EXPLODED VIEW =======================
+         The full system, disassembled. -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="figure figure--contain ratio-16-9" data-ph="EXPLODED VIEW" data-reveal
+             style="background:#f4f5f7;">
+          <img src="images/exploded.png" alt="ORION 드론과 장기 운송 캡슐의 전체 분해 구조도" />
+        </div>
+        <div class="split" style="margin-top:clamp(32px,5vh,64px);">
+          <div data-reveal>
+            <p class="eyebrow">System Architecture</p>
+            <h2 class="h-md">에어프레임 · 추진부 · 보존 캡슐,<br>세 개의 층위.</h2>
+          </div>
+          <div data-reveal>
+            <p class="lead">
+              상단 에어프레임은 항속과 안정성을, 중앙 추진 모듈은 정밀 제어를,
+              하단 캡슐은 장기의 생존 환경을 책임집니다. 각 층은 독립적으로 점검·교체되며,
+              현장에서 빠르게 재구성할 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= THE DRONE ==========================
+         Hero drone + hardware detail. -->
+    <section class="section">
+      <div class="container">
+        <div class="head-block" data-reveal>
+          <p class="eyebrow">01 — The Aircraft</p>
+          <h2 class="h-lg">멈추지 않도록<br>설계된 비행체.</h2>
+        </div>
+
+        <div class="figure figure--hover ratio-21-9" data-ph="AIRCRAFT" data-reveal>
+          <img src="images/hero-drone.jpg" alt="장기 보존 캡슐을 장착하고 비행하는 ORION 드론 측면" />
+          <span class="figure__cap"><span class="tick"></span> ORION · aerial platform</span>
+        </div>
+
+        <div class="gallery-2" style="margin-top:clamp(16px,2vw,28px);">
+          <div class="figure figure--hover ratio-4-3" data-ph="FOLDING JOINT" data-reveal>
+            <img src="images/hardware.jpg" alt="드론 암의 잠금 기구 근접 — 폴딩 락 메커니즘" />
+            <span class="figure__cap"><span class="tick"></span> Secured folding arm</span>
+          </div>
+          <div class="figure figure--hover ratio-4-3" data-ph="ARM JOINT" data-reveal>
+            <img src="images/joint.jpg" alt="티타늄 암 조인트 근접 촬영" />
+            <span class="figure__cap"><span class="tick"></span> Titanium arm joint</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= THE CAPSULE ========================
+         Capsule studio + open-drawer scenario. -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="split split--wide-media">
+          <div class="figure figure--hover ratio-4-3" data-ph="CAPSULE" data-reveal>
+            <img src="images/capsule.jpg" alt="ORION 장기 운송·보존 캡슐 스튜디오 촬영" />
+            <span class="figure__cap on-light"><span class="tick"></span> Organ Transport Capsule</span>
+          </div>
+          <div data-reveal>
+            <p class="eyebrow">02 — The Capsule</p>
+            <h2 class="h-lg">장기를 위한<br>가장 안전한 환경.</h2>
+            <p class="lead">
+              밀폐된 이중 구조 안에서 캡슐은 항온·항습을 능동적으로 유지하고,
+              미세 진동을 흡수합니다. 외부가 어떤 상황이든, 캡슐 내부의 시간은 안정적으로 흐릅니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="figure figure--hover ratio-21-9" data-ph="CAPSULE IN USE" data-reveal
+             style="margin-top:clamp(24px,4vh,56px);">
+          <img src="images/capsule-open.jpg" alt="의료진이 캡슐 드로어에 장기를 안치하는 장면" />
+          <span class="figure__cap"><span class="tick"></span> Sterile loading · controlled environment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= SPECIFICATIONS =======================
+         Restrained spec grid on a dark section. -->
+    <section class="section section--ink">
+      <div class="container">
+        <div class="head-block" data-reveal>
+          <p class="eyebrow">Specifications</p>
+          <h2 class="h-lg">숫자로 보는 ORION.</h2>
+        </div>
+        <div class="specs" data-reveal>
+          <div class="spec"><div class="spec__val">18<span class="u">kg</span></div><div class="spec__key">최대 적재 / Payload</div></div>
+          <div class="spec"><div class="spec__val">120<span class="u">km/h</span></div><div class="spec__key">순항 속도 / Cruise</div></div>
+          <div class="spec"><div class="spec__val">64<span class="u">km</span></div><div class="spec__key">1회 항속 / Range</div></div>
+          <div class="spec"><div class="spec__val">±0.2<span class="u">°C</span></div><div class="spec__key">온도 정밀도 / Thermal</div></div>
+          <div class="spec"><div class="spec__val">8<span class="u">h</span></div><div class="spec__key">보존 지속 / Preservation</div></div>
+          <div class="spec"><div class="spec__val">IP67</div><div class="spec__key">방수·방진 / Ingress</div></div>
+          <div class="spec"><div class="spec__val">4G/5G</div><div class="spec__key">통신 링크 / Uplink</div></div>
+          <div class="spec"><div class="spec__val">Ti</div><div class="spec__key">6Al-4V 프레임 / Frame</div></div>
+        </div>
+        <p class="muted" style="color:var(--on-dark-2); font-size:12px; margin-top:24px;">
+          * 콘셉트 프로젝트를 위한 예시 사양입니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================= -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <h2 class="h-lg" data-reveal>이 제품이<br>현장에서 움직이는 방식.</h2>
+          <div data-reveal style="align-self:end;">
+            <p class="lead">실제 운영 시나리오와 ORION이 그리는 세계관을 확인해 보세요.</p>
+            <div class="btn-row">
+              <a href="mission.html" class="btn btn--solid">Mission 보기 <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          ORION<span class="dot">.</span>
+          <small>Medical transport, reimagined. AI 최적 경로 드론과 스마트 보존 캡슐로 생명을 잇습니다.</small>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Overview</a>
+            <a href="technology.html">Technology</a>
+            <a href="product.html">Product</a>
+            <a href="mission.html">Mission</a>
+          </div>
+          <div class="footer-col">
+            <h4>System</h4>
+            <a href="technology.html">AI Route</a>
+            <a href="technology.html">Real-time Monitoring</a>
+            <a href="technology.html">RFID / IoT Handover</a>
+            <a href="product.html">Smart Capsule</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> ORION Medical Systems. Concept project.</span>
+        <span>Designed for life-critical logistics.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>

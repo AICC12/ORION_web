@@ -1,0 +1,501 @@
+/* =====================================================================
+   ORION — Inline Edit Mode
+   edit.css  ·  UI + affordances for the on-page content editor
+   --------------------------------------------------------------------
+   Loaded on every page alongside edit.js. When edit mode is OFF this
+   only styles the small floating toggle; the rest activates under
+   body.oe-editing. Colours reuse the site tokens (--accent etc.).
+   ===================================================================== */
+
+/* floating toggle button (always visible) */
+.oe-fab {
+  position: fixed; right: 22px; bottom: 22px; z-index: 9000;
+  display: inline-flex; align-items: center; gap: 9px;
+  height: 46px; padding: 0 20px;
+  font: 500 14px/1 var(--sans, sans-serif); letter-spacing: .01em;
+  color: #fff; background: #0a0b0d;
+  border: 0; border-radius: 100px; cursor: pointer;
+  box-shadow: 0 6px 22px rgba(0,0,0,.22);
+  transition: transform .3s cubic-bezier(.22,.61,.36,1), background .3s;
+}
+.oe-fab:hover { transform: translateY(-2px); }
+.oe-fab .oe-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent, #e11d2a); }
+body.oe-editing .oe-fab { background: var(--accent, #e11d2a); }
+
+/* toolbar shown while editing */
+.oe-bar {
+  position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 140%);
+  z-index: 9000; display: flex; align-items: center; gap: 6px;
+  padding: 8px; border-radius: 100px;
+  background: rgba(12,13,15,.86);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  box-shadow: 0 10px 34px rgba(0,0,0,.34);
+  opacity: 0; transition: transform .4s cubic-bezier(.22,.61,.36,1), opacity .3s;
+  font-family: var(--sans, sans-serif);
+}
+body.oe-editing .oe-bar { transform: translate(-50%, 0); opacity: 1; }
+
+.oe-bar__label {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #fff; font-size: 13px; font-weight: 500; padding: 0 14px 0 10px;
+}
+.oe-bar__label .oe-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent, #e11d2a);
+  box-shadow: 0 0 0 0 rgba(225,29,42,.5); animation: oe-pulse 1.8s infinite; }
+@keyframes oe-pulse { 0%{box-shadow:0 0 0 0 rgba(225,29,42,.5)} 70%{box-shadow:0 0 0 7px rgba(225,29,42,0)} 100%{box-shadow:0 0 0 0 rgba(225,29,42,0)} }
+
+.oe-btn {
+  appearance: none; border: 0; cursor: pointer;
+  font: 500 13px/1 var(--sans, sans-serif); letter-spacing: .01em;
+  color: #f2f3f5; background: rgba(255,255,255,.10);
+  padding: 10px 15px; border-radius: 100px;
+  transition: background .25s, color .25s;
+}
+.oe-btn:hover { background: rgba(255,255,255,.20); }
+.oe-btn--primary { background: #fff; color: #0a0b0d; }
+.oe-btn--primary:hover { background: var(--accent, #e11d2a); color: #fff; }
+.oe-bar__sep { width: 1px; height: 22px; background: rgba(255,255,255,.16); margin: 0 4px; }
+
+/* editable affordances (only while editing) */
+body.oe-editing [contenteditable="true"] { border-radius: 3px; transition: outline-color .2s, background .2s; }
+body.oe-editing [contenteditable="true"]:hover {
+  outline: 1px dashed rgba(225,29,42,.55); outline-offset: 4px; cursor: text;
+}
+body.oe-editing [contenteditable="true"]:focus {
+  outline: 2px solid var(--accent, #e11d2a); outline-offset: 4px;
+  background: rgba(225,29,42,.04);
+}
+
+/* replaceable images (only while editing) */
+body.oe-editing .oe-img { cursor: pointer; position: relative; }
+body.oe-editing .oe-img { outline: 1px dashed rgba(225,29,42,.0); transition: outline-color .2s; }
+body.oe-editing .oe-img:hover { outline: 2px solid var(--accent, #e11d2a); outline-offset: -2px; }
+/* "이미지 교체" hint on hover — drawn on the image's parent */
+body.oe-editing .oe-imgwrap { position: relative; }
+body.oe-editing .oe-imgwrap::after {
+  content: "클릭하여 이미지 교체"; position: absolute; z-index: 5;
+  left: 50%; top: 50%; transform: translate(-50%,-50%) scale(.96);
+  padding: 9px 16px; border-radius: 100px;
+  font: 500 12px/1 var(--sans, sans-serif); letter-spacing: .02em; white-space: nowrap;
+  color: #fff; background: rgba(10,11,13,.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s;
+}
+body.oe-editing .oe-imgwrap:hover::after { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+
+/* floating text-format toolbar (appears above a selection) */
+.oe-format {
+  position: fixed; z-index: 9200; top: 0; left: 0;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: 3px;
+  padding: 6px; border-radius: 12px;
+  background: #16171a; box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  opacity: 0; pointer-events: none; transition: opacity .16s ease;
+  font-family: var(--sans, sans-serif);
+}
+.oe-format.is-on { opacity: 1; pointer-events: auto; }
+.oe-format .oe-f {
+  min-width: 30px; height: 30px; padding: 0 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 8px; cursor: pointer;
+  background: transparent; color: #e9eaec;
+  font: 500 12.5px/1 var(--sans, sans-serif);
+  transition: background .18s, color .18s;
+}
+.oe-format .oe-f:hover { background: rgba(255,255,255,.14); color: #fff; }
+.oe-format .oe-f b { font-weight: 700; font-size: 14px; }
+.oe-f-sep { width: 1px; height: 20px; background: rgba(255,255,255,.16); margin: 0 3px; }
+/* colour swatches */
+.oe-format .oe-sw {
+  width: 22px; height: 22px; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(255,255,255,.22); padding: 0;
+  transition: transform .15s;
+}
+.oe-format .oe-sw:hover { transform: scale(1.14); }
+.oe-format .oe-sw--ring { border-color: rgba(255,255,255,.5); }
+.oe-format .oe-sw--pick { position: relative; overflow: hidden;
+  background: conic-gradient(#e11d2a,#f6c945,#33c26a,#2f7bf6,#a24bf0,#e11d2a); }
+.oe-format .oe-sw--pick input { position: absolute; inset: -4px; opacity: 0; cursor: pointer; }
+
+/* toast */
+.oe-toast {
+  position: fixed; left: 50%; bottom: 84px; transform: translate(-50%, 10px);
+  z-index: 9100; padding: 11px 18px; border-radius: 100px;
+  background: #0a0b0d; color: #fff; font: 500 13px/1 var(--sans, sans-serif);
+  box-shadow: 0 8px 26px rgba(0,0,0,.3);
+  opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s;
+}
+.oe-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* mode segmented control (text / design) inside the bar */
+.oe-seg { display: inline-flex; background: rgba(255,255,255,.10); border-radius: 100px; padding: 3px; }
+.oe-seg__b {
+  border: 0; cursor: pointer; background: transparent; color: rgba(255,255,255,.7);
+  font: 500 13px/1 var(--sans, sans-serif); padding: 8px 15px; border-radius: 100px;
+  transition: background .25s, color .25s;
+}
+.oe-seg__b.is-on { background: #fff; color: #0a0b0d; }
+
+/* MORPH while editing — lay the two stacked images SIDE BY SIDE so
+   replacing one never overlaps the other (fixes the overlap bug) */
+body.oe-editing .morph {
+  display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px;
+  aspect-ratio: auto !important; height: auto !important;
+}
+body.oe-editing .morph img {
+  position: relative !important; inset: auto !important;
+  width: 100% !important; height: auto !important; aspect-ratio: 4 / 3;
+  opacity: 1 !important; transform: none !important;
+}
+body.oe-editing .morph .morph__hint { display: none; }
+
+/* DESIGN MODE — selection + drag affordances */
+body.oe-design [data-oeid] { cursor: default; }
+body.oe-design .oe-selected { outline: 2px solid var(--accent, #e11d2a) !important; outline-offset: 2px; cursor: move; }
+body.oe-design .oe-selected.oe-dragging { opacity: .9; }
+body.oe-design [data-oeid]:hover { outline: 1px dashed rgba(225,29,42,.4); outline-offset: 2px; }
+
+/* resize handle (bottom-right corner of the selected block) */
+.oe-resize {
+  position: fixed; z-index: 9160; display: none;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent, #e11d2a); border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  cursor: nwse-resize; touch-action: none;
+}
+
+/* design side panel */
+.oe-panel {
+  position: fixed; right: 20px; top: 84px; z-index: 9150; width: 260px;
+  background: #16171a; color: #e9eaec; border-radius: 16px; padding: 6px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.4); font-family: var(--sans, sans-serif);
+  transform: translateX(120%); opacity: 0; transition: transform .4s cubic-bezier(.22,.61,.36,1), opacity .3s;
+}
+.oe-panel.is-on { transform: none; opacity: 1; }
+.oe-panel__h { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 4px; }
+.oe-panel__t { font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+.oe-x { border: 0; background: transparent; color: rgba(255,255,255,.6); cursor: pointer; font-size: 14px; padding: 4px 6px; border-radius: 6px; }
+.oe-x:hover { background: rgba(255,255,255,.12); color: #fff; }
+.oe-panel__tag { margin: 0 12px 10px; font-size: 11px; letter-spacing: .04em; color: var(--accent, #e11d2a); font-weight: 600; }
+.oe-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; }
+.oe-row label { font-size: 12.5px; color: rgba(255,255,255,.78); display: flex; gap: 6px; align-items: baseline; }
+.oe-row label b { font-weight: 600; color: #fff; font-size: 11px; }
+.oe-row span { display: inline-flex; align-items: center; gap: 6px; }
+.oe-row input[type="color"] { width: 30px; height: 26px; border: 1px solid rgba(255,255,255,.2); border-radius: 7px; background: none; cursor: pointer; padding: 0; }
+.oe-row input[type="range"] { width: 118px; accent-color: var(--accent, #e11d2a); cursor: pointer; }
+.oe-mini { border: 0; cursor: pointer; background: rgba(255,255,255,.12); color: #f2f3f5; font: 500 11.5px/1 var(--sans, sans-serif); padding: 7px 10px; border-radius: 8px; transition: background .2s; }
+.oe-mini:hover { background: rgba(255,255,255,.22); }
+.oe-panel__note { margin: 6px 12px 2px; font-size: 11px; line-height: 1.5; color: rgba(255,255,255,.5); }
+.oe-panel__note b { color: rgba(255,255,255,.8); font-weight: 600; }
+.oe-panel__foot { display: flex; gap: 6px; padding: 10px 12px 8px; }
+
+@media (max-width: 560px) {
+  .oe-bar { flex-wrap: wrap; justify-content: center; max-width: calc(100vw - 24px); }
+  .oe-fab { right: 14px; bottom: 14px; }
+  .oe-panel { right: 12px; left: 12px; width: auto; top: 74px; }
+}
+/* ===============================
+   메인 화면 텍스트 위치 조정
+   =============================== */
+
+/* 상단 ORION 로고와 메뉴를 화면 양끝 쪽으로 이동 */
+.site-header .container {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 56px !important;
+  padding-right: 56px !important;
+}
+
+/* 왼쪽 상단 ORION 로고를 더 왼쪽으로 */
+.brand {
+  margin-left: 0 !important;
+}
+
+/* 오른쪽 메뉴를 더 오른쪽으로 */
+.nav {
+  margin-left: auto !important;
+}
+
+/* 메인 큰 ORION 텍스트 영역을 더 왼쪽으로 이동 */
+.hero__inner .container {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 56px !important;
+  padding-right: 56px !important;
+}
+
+/* 큰 ORION 텍스트 자체 위치 */
+.hero__title {
+  max-width: 620px !important;
+  margin-left: 0 !important;
+}
+
+/* 하단 SCROLL 표시도 같이 왼쪽으로 정렬 */
+.scroll-cue {
+  left: 56px !important;
+}
+
+/* 모바일에서는 너무 붙지 않게 */
+@media (max-width: 768px) {
+  .site-header .container,
+  .hero__inner .container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .scroll-cue {
+    left: 24px !important;
+  }
+}
+/* ===============================
+   큰 문장 텍스트 크기 조절
+   =============================== */
+
+.h-xl.statement.wide {
+  font-size: clamp(28px, 3.7vw, 50px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.05em !important;
+  max-width: 30ch !important;
+}
+/* ===============================
+   이미지 박스 빗금 배경 제거
+   =============================== */
+
+.figure::before {
+  background: none !important;
+  content: "" !important;
+}
+
+.figure {
+  background: #f4f5f6 !important;
+}
+/* ===============================
+   분해도 이미지 크기 확대
+   =============================== */
+
+.system-figure img {
+  transform: scale(1.22) !important;
+  transform-origin: center center !important;
+}
+/* ===============================
+   Mission 페이지 단계 박스 안쪽 여백 조정
+   =============================== */
+
+.steps .step {
+  padding: clamp(56px, 5vw, 88px) clamp(48px, 6vw, 96px) !important;
+  grid-template-columns: 120px minmax(320px, 0.9fr) minmax(420px, 1.1fr) !important;
+}
+
+/* 01 / DEPARTURE 부분이 너무 붙지 않게 */
+.step__no {
+  padding-left: 0 !important;
+}
+
+/* 제목과 설명 텍스트 영역 여백 */
+.step__body {
+  padding-left: clamp(12px, 2vw, 32px) !important;
+}
+
+/* 설명문 가독성 조금 개선 */
+.step__body p {
+  line-height: 1.75 !important;
+}
+/* ===============================
+   THE NETWORK 섹션 텍스트 크기 / 줄바꿈 수정
+   =============================== */
+
+.network-copy {
+  max-width: 560px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+/* 제목 크기 줄이기 */
+.network-copy h2 {
+  font-size: clamp(34px, 4.2vw, 64px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.055em !important;
+  word-break: keep-all !important;
+  margin-bottom: 28px !important;
+}
+
+/* 설명문 크기와 줄바꿈 정리 */
+.network-copy p {
+  font-size: clamp(16px, 1.35vw, 22px) !important;
+  line-height: 1.7 !important;
+  letter-spacing: -0.035em !important;
+  word-break: keep-all !important;
+  max-width: 480px !important;
+  margin: 0 auto !important;
+}
+/* ===============================
+   Mission 페이지 THE NETWORK 텍스트 크기 수정
+   =============================== */
+
+.media-band--center .media-band__content {
+  max-width: 760px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+/* 동그라미 친 큰 제목 */
+.media-band--center .h-lg {
+  font-size: clamp(28px, 3vw, 46px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.045em !important;
+  font-weight: 700 !important;
+  word-break: keep-all !important;
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 24px !important;
+}
+
+/* 아래 설명문 */
+.media-band--center .lead {
+  font-size: clamp(15px, 1.15vw, 18px) !important;
+  line-height: 1.65 !important;
+  letter-spacing: -0.035em !important;
+  word-break: keep-all !important;
+  max-width: 520px !important;
+}
+/* ===============================
+   Mission 마지막 섹션 '생명을 잇다.' 크기 조절
+   =============================== */
+
+.section--ink .display.statement {
+  font-size: clamp(44px, 5.5vw, 88px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.055em !important;
+  text-align: center !important;
+  word-break: keep-all !important;
+}
+/* ===============================
+   Footer ORION 로고 크기 줄이기
+   =============================== */
+
+.site-footer .footer-brand {
+  font-size: clamp(28px, 3.2vw, 48px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* footer 설명문도 너무 붙어 보이면 같이 정리 */
+.site-footer .footer-brand {
+  font-size: 28px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.12em !important;
+  font-weight: 700 !important;
+}
+/* ===============================
+   Live Telemetry 제목 줄바꿈만 수정
+   =============================== */
+
+.telemetry-band .media-band__content {
+  max-width: 760px !important;
+  width: max-content !important;
+}
+
+.telemetry-band .h-lg {
+  white-space: nowrap !important;
+  max-width: none !important;
+  word-break: keep-all !important;
+}
+/* ===============================
+   Mission Hero 제목 줄바꿈 정리
+   =============================== */
+
+.hero__title .no-break {
+  white-space: nowrap !important;
+}
+
+.hero__title {
+  max-width: 860px !important;
+  word-break: keep-all !important;
+}
+/* ===============================
+   Mission Hero 제목 줄간격 조정
+   =============================== */
+
+.hero__title {
+  line-height: 1.18 !important;
+}
+/* ===============================
+   Mission 마지막 섹션 제목 더 작게
+   =============================== */
+
+.section--ink .display.statement 
+  font-size: clamp(30px, 3.5vw, 52px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.04em !important;
+.section--ink .lead {
+  font-size: clamp(15px, 1.2vw, 19px) !important;
+  line-height: 1.6 !important;
+}
+/* =========================
+   Explore / 더 깊이 들여다보기 섹션
+   제목 + 화살표 정렬
+   ========================= */
+
+/* 각 카드(기술 / 제품 / 미션) */
+.explore-card,
+.explore-item,
+.deep-dive-item {
+  position: relative;
+}
+
+/* 제목줄 */
+.explore-card__head,
+.explore-item__head,
+.deep-dive-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+/* 제목 텍스트 */
+.explore-card__title,
+.explore-item__title,
+.deep-dive-item__title {
+  margin: 0;
+}
+
+/* 화살표 */
+.explore-card__arrow,
+.explore-item__arrow,
+.deep-dive-item__arrow {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+  font-size: 28px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+/* ===============================
+   더 깊이 들여다보기 화살표 위치 수정
+   =============================== */
+
+/* 제목과 화살표를 한 묶음처럼 붙이기 */
+.dir-link .t {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 20px !important;
+  width: fit-content !important;
+}
+
+/* 화살표가 멀리 떨어지지 않게 */
+.dir-link .t .arrow {
+  position: static !important;
+  margin-left: 4px !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(1px) !important;
+}
+
+/* hover할 때만 살짝 오른쪽으로 */
+.dir-link:hover .t .arrow {
+  transform: translate(6px, 1px) !important;
+  color: #fff !important;
+}
